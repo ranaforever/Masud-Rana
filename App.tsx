@@ -244,7 +244,7 @@ const App: React.FC = () => {
                 <SeatMap 
                   busNo={0}
                   activeTourName={activeTourName}
-                  bookedSeats={responses.filter(r => r.tourName === activeTourName).map(r => r.seatNo)}
+                  responses={responses.filter(r => r.tourName === activeTourName)}
                   onSeatClick={handleSeatClick}
                   isDarkMode={isDarkMode}
                 />
@@ -255,7 +255,10 @@ const App: React.FC = () => {
                   <h3 className={`font-black uppercase tracking-tighter text-sm ${isDarkMode ? 'text-slate-200' : 'text-slate-800'}`}>Status Key</h3>
                   <div className="space-y-4">
                     <LegendItem color={isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-50 border-slate-200'} label="Available" desc="Open Seat" isDarkMode={isDarkMode} />
-                    <LegendItem color="bg-[#003B95] border-[#003B95]" label="Occupied" desc="Guest Confirmed" isDarkMode={isDarkMode} />
+                    <LegendItem color="bg-[#003B95] border-[#002B6B]" label="Occupied (Male)" desc="Guest Confirmed" isDarkMode={isDarkMode} />
+                    <LegendItem color="bg-[#FF69B4] border-[#C71585]" label="Occupied (Female)" desc="Safe Boarding" isDarkMode={isDarkMode} />
+                    <LegendItem color="bg-[#FFD700] border-[#DAA520]" label="Female (Non-Muslim)" desc="Guest Detail" isDarkMode={isDarkMode} />
+                    <LegendItem color="bg-[#FF0000] border-[#B22222]" label="Male (Non-Muslim)" desc="Guest Detail" isDarkMode={isDarkMode} />
                     <LegendItem color={isDarkMode ? 'bg-slate-900 border-[#FF6B00] animate-pulse' : 'bg-white border-[#FF6B00] animate-pulse'} label="Selecting" desc="In-Progress" isDarkMode={isDarkMode} />
                   </div>
                 </div>
